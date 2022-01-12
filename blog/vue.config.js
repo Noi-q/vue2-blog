@@ -5,4 +5,13 @@ module.exports = {
     }
   },
   lintOnSave: false,
+  devServer:{
+    proxy:{
+      '/api':{
+        target: 'localhost:5000',
+        changeOrigin: true,
+        pathRewrite:{'^/api':''}
+      }
+    }
+  }
 }

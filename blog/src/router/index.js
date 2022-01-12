@@ -22,6 +22,10 @@ VueRouter.prototype.replace = function(location,resolve,reject){
 
 //
 import HomePage from '../pages/HomePage'
+import HomeContent from '../pages/Home/HomeContent'
+import Archive from '../pages/Home/Archive'
+import Talk from '../pages/Home/Talk'
+import Message from '../pages/Home/Message'
 
 const router = new VueRouter({
   mode:'hash',
@@ -32,8 +36,34 @@ const router = new VueRouter({
     },
     {
       path:'/home',
-      component:HomePage
-    }
+      redirect:'/home/Content'
+    },
+    {
+      path:'/home',
+      component:HomePage,
+      children:[
+        {
+          name:'Content',
+          path:'Content',
+          component:HomeContent
+        },
+        {
+          name:'Archive',
+          path:'Archive',
+          component:Archive
+        },
+        {
+          name:'Talk',
+          path:'Talk',
+          component:Talk
+        },
+        {
+          name:'Message',
+          path:'Message',
+          component:Message
+        }
+      ]
+    },
   ]
 })
 

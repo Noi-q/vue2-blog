@@ -9,7 +9,10 @@
 
 export default {
   name: 'App',
-  components: {}
+  components: {},
+  mounted() {
+    this.$store.dispatch('Data')
+  }
 }
 </script>
 
